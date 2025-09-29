@@ -136,7 +136,7 @@ while player.is_alive() and any(monster.is_alive() for monster in monsters):
     print(f"\n--- Раунд {round_num} ---")
 
     '''Ход игрока: атакует первого монстра'''
-    attacted = next(m for m in monsters if m.is_alive())
+    attacted = next(monster for monster in monsters if m.is_alive())
     print(player.character_hit(attacted))
 
     '''Иногда игрок лечится'''
@@ -144,9 +144,9 @@ while player.is_alive() and any(monster.is_alive() for monster in monsters):
         print(player.heal())
 
     '''Ход монстров'''
-    for m in monsters:
-        if m.is_alive():
-            print(m.character_hit(player))
+    for monster in monsters:
+        if monster.is_alive():
+            print(monster.character_hit(player))
 
     print(player)
     for monster in monsters:
