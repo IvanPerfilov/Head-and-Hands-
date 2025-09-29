@@ -124,19 +124,19 @@ monster2 = Monster("Орк", 18, 15, 40, 40, [6, 10])
 
 monsters = [monster1, monster2]
 
-print("=== НАЧАЛО ИГРЫ ===")
+print("===== НАЧАЛО ИГРЫ =====")
 print(player)
 for monster in monsters:
     print(monster)
 
-print("\n=== БИТВА НАЧИНАЕТСЯ! ===\n")
+print("\n===== БИТВА НАЧИНАЕТСЯ! =====\n")
 
 round_num = 1
 while player.is_alive() and any(monster.is_alive() for monster in monsters):
-    print(f"\n--- Раунд {round_num} ---")
+    print(f"\n----- Раунд {round_num} -----")
 
     '''Ход игрока: атакует первого монстра'''
-    attacted = next(monster for monster in monsters if m.is_alive())
+    attacted = next(monster for monster in monsters if monster.is_alive())
     print(player.character_hit(attacted))
 
     '''Иногда игрок лечится'''
@@ -154,7 +154,7 @@ while player.is_alive() and any(monster.is_alive() for monster in monsters):
 
     round_num += 1
 
-print("\n=== ИГРА ОКОНЧЕНА ===")
+print("\n===== ИГРА ОКОНЧЕНА =====")
 if player.is_alive():
     print("Игрок победил монстров!")
 else:
